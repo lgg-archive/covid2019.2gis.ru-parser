@@ -1,0 +1,25 @@
+{
+  "name": "covid2019.2gis.ru-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgg/covid2019.2gis.ru-parser.git"
+  },
+  "author": "lgg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgg/covid2019.2gis.ru-parser/issues"
+  },
+  "homepage": "https://github.com/lgg/covid2019.2gis.ru-parser#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pm2": "^4.2.3",
+    "puppeteer": "^2.1.1"
+  }
+}
