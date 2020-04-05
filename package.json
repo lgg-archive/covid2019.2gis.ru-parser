@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start index.js --name covid2019-parser --max-memory-restart 50M",
+    "stop": "pm2 stop covid2019-parser"
+
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,8 @@
     "express": "^4.17.1",
     "pm2": "^4.2.3",
     "puppeteer": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
