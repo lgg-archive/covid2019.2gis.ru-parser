@@ -4,6 +4,7 @@ const selectors = require('./2gis-html.js');
 const express = require('express');
 const app = express();
 
+const url = 'https://covid.2gis.ru/';
 const port = 22019;
 let page;
 
@@ -27,12 +28,14 @@ let page;
 })();
 
 async function parse2gis() {
-    await page.goto('https://covid.2gis.ru/');
+    await page.goto(url);
 
     let result = {};
     result.date = await getDate();
     result.russia = await getRussia();
     result.moscow = await getMoscow();
+
+    result.description = 'This is actual parsed data about COVID-2019  in Russia/Moscow from ' + url;
 
     console.log('Parsed result:', result);
 
