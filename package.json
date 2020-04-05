@@ -8,7 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "pm2 start index.js --name covid2019-parser --max-memory-restart 50M",
     "stop": "pm2 stop covid2019-parser"
-
   },
   "repository": {
     "type": "git",
