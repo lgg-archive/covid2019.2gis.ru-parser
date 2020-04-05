@@ -6,6 +6,7 @@ const app = express();
 
 const url = 'https://covid.2gis.ru/';
 const port = 22019;
+const host = '127.0.0.1';
 let page;
 
 (async () => {
@@ -20,7 +21,7 @@ let page;
         res.send(currentResult)
     });
 
-    app.listen(port);
+    app.listen(port, host);
 
     console.log('Start serving app on: localhost:' + port);
 
