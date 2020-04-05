@@ -36,7 +36,7 @@ async function parse2gis() {
     result.russia = await getRussia();
     result.moscow = await getMoscow();
 
-    result.description = 'This is actual parsed data about COVID-2019  in Russia/Moscow from ' + url;
+    result.description = 'This is actual parsed data about COVID-2019 in Russia/Moscow from ' + url;
 
     console.log('Parsed result:', result);
 
