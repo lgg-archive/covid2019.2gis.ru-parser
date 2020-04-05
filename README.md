@@ -12,6 +12,10 @@
 * `npm install`
 * `npm start`
 
+Optional:
+* add nginx config (edit it for your data): `sudo ln -sT nginx.conf /etc/nginx/sites-enabled/covid2019.fedos.top`
+* you will need SSL (Let's Encrypt certificate)
+
 ## Output:
 
 JSON:
