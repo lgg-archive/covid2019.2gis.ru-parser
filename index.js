@@ -49,7 +49,7 @@ async function getDate() {
     let currentDate = await getTextContent(selectors.date);
     currentDate = currentDate.split(',')[1].trim().split(' ');
 
-    currentDate = monthRu2Num(currentDate[1]) + '.' + currentDate[0] + '.' + currentDate[2];
+    currentDate = currentDate[0] + '.' + monthRu2Num(currentDate[1]) + '.' + currentDate[2];
 
     return currentDate;
 }
