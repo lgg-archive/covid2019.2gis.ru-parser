@@ -4,7 +4,7 @@ const selectors = require('./2gis-html.js');
 const express = require('express');
 const app = express();
 
-const url = 'https://covid.2gis.ru/';
+const url = 'https://covid.2gis.ru/stat';
 const port = 22019;
 const host = '127.0.0.1';
 let page;
@@ -32,9 +32,13 @@ async function parse2gis() {
     await page.goto(url);
 
     let result = {};
-    result.date = await getDate();
-    result.russia = await getRussia();
-    result.moscow = await getMoscow();
+    try {
+        result.date = await getDate();
+        result.russia = await getRussia();
+        result.moscow = await getMoscow();
+    } catch (e) {
+        result.description = 'ERROR: markup changed, couldn\'t find elements';
+    }
 
     result.description = 'This is actual parsed data about COVID-2019 in Russia/Moscow from ' + url;
 
