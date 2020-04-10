@@ -29,8 +29,8 @@ JSON:
 
 ## Notes
 
-* this repo also have [google-spreadsheet-script.js](./google-spreadsheet-script.js) for using it with [this spreadsheet](https://docs.google.com/spreadsheets/d/1fm9C4u_VxKwoOcG9fvcy9Y1JrhjkkWTnfR0zmYWDGAM/edit#gid=0)
-* don't forget to set it to timer
+* This repo also have [google-spreadsheet-script.js](./google-spreadsheet-script.js) for using it with [this spreadsheet](https://docs.google.com/spreadsheets/d/1fm9C4u_VxKwoOcG9fvcy9Y1JrhjkkWTnfR0zmYWDGAM/edit#gid=0)
+    * Don't forget to set up script execution by timer (every hour)
 
 ## License
 
