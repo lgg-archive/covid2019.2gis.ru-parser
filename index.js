@@ -37,9 +37,9 @@ async function parse2gis(page) {
 
     let result = {};
     try {
-        result.date = await getDate();
-        result.russia = await getRussia();
-        result.moscow = await getMoscow();
+        result.date = await getDate(page);
+        result.russia = await getRussia(page);
+        result.moscow = await getMoscow(page);
     } catch (e) {
         result.description = 'ERROR: markup changed, couldn\'t find elements';
     }
