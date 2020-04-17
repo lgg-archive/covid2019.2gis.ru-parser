@@ -7,23 +7,37 @@ const app = express();
 const url = 'https://covid.2gis.ru/stat';
 const port = 22019;
 const host = '127.0.0.1';
+const browserPagesLimit = 5; // performance ad-hoc
 
 (async () => {
     const browser = await puppeteer.launch({args: ['--no-sandbox']});
 
     app.get('/', async function (req, res) {
-        let page = await browser.newPage();
+        let currentPagesAmount = await browser.pages();
+        let page = null,
+            currentResult = {
+                error: '502',
+                description: 'Maximum connections opened, try again later'
+            };
 
-        let currentResult = await parse2gis(page);
+        if (currentPagesAmount.length < browserPagesLimit) {
+            page = await browser.newPage();
+
+            currentResult = await parse2gis(page);
+        }
 
         console.log('Send result:', currentResult);
 
         res.send(currentResult);
 
         // clear page memory
-        await page.goto('about:blank');
-        await page.close();
-        page = null;
+        if (page) {
+            await page.goto('about:blank');
+            await page.close();
+            page = null;
+            currentPagesAmount = null;
+        }
+
         // await browser.close();
     });
 
