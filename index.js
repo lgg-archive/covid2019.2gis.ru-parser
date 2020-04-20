@@ -51,7 +51,8 @@ function getDate(date) {
     // input format: 2020-04-19
     // output format: 19.4.2020
     let currentDate = date.split('-');
-    return currentDate[2] + '.' + currentDate[1] + '.' + currentDate[0]
+    // we need to remove leading zero with parseInt because google script use dates without leading zero
+    return parseInt(currentDate[2]) + '.' + parseInt(currentDate[1]) + '.' + currentDate[0]
 }
 
 async function getJson(url) {
