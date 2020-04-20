@@ -19,6 +19,8 @@ function run() {
     if (data) {
         log('INFO: 2gis parsed successfully');
 
+        log('DEBUG: DATES | current: ' + currentDate + ' | ' + data.date)
+
         // check if we have data for fill
         if (currentDate === data.date) {
             // get data date cell
@@ -34,10 +36,13 @@ function run() {
             let currentValues = {
                 russia: getCellValue(sheet, addresses.russia),
                 moscow: getCellValue(sheet, addresses.moscow)
-            }
+            };
 
             // check that cells values are equal to parsed
             // for now i don't want to modify cell value if it's not empty
+            log('DEBUG: Dates Russia | current: ' + currentValues.russia + ' | ' + data.russia)
+            log('DEBUG: Dates Moscow | current: ' + currentValues.moscow + ' | ' + data.moscow)
+
             if (isValueEmpty(currentValues.russia) && areDatesNotEqual(currentValues.russia, data.russia)) {
                 writeDataToCell(sheet, addresses.russia, data.russia);
                 log('INFO: Russia cell updated to value: ' + data.russia.toString());
@@ -125,8 +130,8 @@ function log(data) {
 
 function letterToColumn(letter) {
     // copyright: https://stackoverflow.com/questions/21229180/convert-column-index-into-corresponding-column-letter
-    var column = 0, length = letter.length;
-    for (var i = 0; i < length; i++) {
+    let column = 0, length = letter.length;
+    for (let i = 0; i < length; i++) {
         column += (letter.charCodeAt(i) - 64) * Math.pow(26, length - i - 1);
     }
     return column;
