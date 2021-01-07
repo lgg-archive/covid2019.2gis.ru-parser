@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/lgg/covid2019.2gis.ru-parser#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "pm2": "^4.2.3"
   },
